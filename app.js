@@ -12,3 +12,14 @@ function agregarAmigo(){
 
     listaDeAmigos(nombreAmigos);
 } 
+
+function listaDeAmigos(amigos){
+
+    //Visualizar la lista: Los nombres ingresados aparecerán en una lista debajo del campo de entrada.
+
+    let listaDeAmigos = document.getElementById('listaAmigos');
+
+    listaDeAmigos.innerHTML = `<li> ${amigos} </li>`;
+    
+    return;
+}

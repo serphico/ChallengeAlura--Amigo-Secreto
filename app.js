@@ -23,3 +23,12 @@ function listaDeAmigos(amigos){
     
     return;
 }
+
+//Sorteo aleatorio: Al hacer clic en el botón "Sortear Amigo", se seleccionará aleatoriamente un nombre de la lista y se mostrará en la página.
+
+function sortearAmigo() {
+    let numeroAleatorio = Math.floor(Math.random()*nombreAmigos.length)
+
+    nombreAmigos.length <= 1 || nombreAmigos == undefined  ? alert('Introduzca más nombres') :listaDeAmigos(` El ganador/a es: ${nombreAmigos[numeroAleatorio]}`);
+    console.log(numeroAleatorio);
+}

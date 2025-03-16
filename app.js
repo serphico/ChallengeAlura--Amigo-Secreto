@@ -7,10 +7,11 @@ let nombreAmigos = [];
 function agregarAmigo(){
 
     //Validar entrada: Si el campo de texto está vacío, el programa mostrará una alerta pidiendo un nombre válido.
+    let amigoTipeado = document.getElementById('amigo').value;
 
-    document.getElementById('amigo').value == '' ? alert('Digite un nombre Valido') : nombreAmigos.push(document.getElementById('amigo').value);
+    document.getElementById('amigo').value == '' ? alert('Digite un nombre Valido') : nombreAmigos.push(amigoTipeado);
 
-    listaDeAmigos(nombreAmigos);
+    listaDeAmigos(amigoTipeado);
 } 
 
 function listaDeAmigos(amigos){
@@ -19,8 +20,23 @@ function listaDeAmigos(amigos){
 
     let listaDeAmigos = document.getElementById('listaAmigos');
 
-    listaDeAmigos.innerHTML = `<li> ${amigos} </li>`;
+   listaDeAmigos.innerHTML += `<li> ${amigos} </li>`;
+
     
+    return;
+}
+
+function ganadorAmigoSecreto(resultado) {
+    
+    let amigoGanador = document.getElementById('resultado');
+    amigoGanador.innerHTML = `<li> ${resultado} </li>`;
+    return;
+}
+
+function BorrarLista(){
+
+    let listaDeAmigos = document.getElementById('listaAmigos');
+    listaDeAmigos.innerHTML = "";
     return;
 }
 
@@ -29,6 +45,8 @@ function listaDeAmigos(amigos){
 function sortearAmigo() {
     let numeroAleatorio = Math.floor(Math.random()*nombreAmigos.length)
 
-    nombreAmigos.length <= 1 || nombreAmigos == undefined  ? alert('Introduzca más nombres') :listaDeAmigos(` El ganador/a es: ${nombreAmigos[numeroAleatorio]}`);
+    nombreAmigos.length <= 1 || nombreAmigos == undefined  ? alert('Introduzca más nombres') :ganadorAmigoSecreto(` El ganador/a es: ${nombreAmigos[numeroAleatorio]}`);
+    BorrarLista();
     console.log(numeroAleatorio);
 }
+
